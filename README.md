@@ -2,6 +2,7 @@
 
 Surpay is a polling app designed with Django and Mysql.
 
+
 ## Preparing MySQL database (assuming already installed):
 
 1. `$ mysql -u root -p`   [enter root password]
@@ -35,11 +36,11 @@ A much simpler option is to download or copy the setup.sh file from the repo. Ru
 
 Upon running the application, you will be greated with the complete/ page. This is because there are currently no polls entered into the database. To begin adding questions and answers, login to the admin section using the superuser account entered during setup. The app is designed to only allow one vote per question per session.
 
-## Admin mode
+## Admin mode:
 
 When signed in as admin, you will not be allowed to vote, but you will be able to browse all of the questions and see their current results, which have been visualized using pie charts.
 
-## Notes
+## Notes:
 
 If you want to change any of the database options (dbname, user, password) you must also change the settings in surpay/surpay/settings.py before applying migrations.
 
