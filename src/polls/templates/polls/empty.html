@@ -1,0 +1,26 @@
+{% extends "polls/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}{{ block.super }}{{ question.text }}{% endblock %}
+
+{% block styles %}
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+{% endblock styles %}
+
+{% block navbar-right %}
+  {% if not user.is_authenticated %}
+    <a class="btn btn-default" href="{% url 'admin:index' %}" role="button">Log in</a>
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+
+{% block container %}
+  <h1>{{ question.text }}</h1>
+
+  <p class="emptystatement">There are currently no votes for this poll.</p>
+
+  <a href="{% url 'polls:index' %}" class="btn btn-light">Poll list</a>
+{% endblock container %}

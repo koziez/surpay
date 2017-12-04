@@ -1,0 +1,23 @@
+{% extends "polls/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}{{ block.super }}Home{% endblock %}
+
+{% block styles %}
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+{% endblock styles %}
+
+{% block navbar-right %}
+  {% if not user.is_authenticated %}
+    <a class="btn btn-default" href="{% url 'admin:index' %}" role="button">Log in</a>
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+
+{% block container %}
+  <h1>You have answered all the polls.</h1>
+  <p>Please check back soon for more polls.</p>
+{% endblock container %}
